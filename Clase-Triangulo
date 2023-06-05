@@ -1,0 +1,33 @@
+from abc import ABC, abstractmethod
+
+class FiguraGeometrica(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimetro(self):
+        pass
+
+
+class Triangulo(FiguraGeometrica):
+    def _init_(self, base, altura, lado1, lado2, lado3):
+        self.base = base
+        self.altura = altura
+        self.lado1 = lado1
+        self.lado2 = lado2
+        self.lado3 = lado3
+
+    def area(self):
+        area = (self.base * self.altura) / 2
+        return f"El área del triángulo es: {area}"
+
+    def perimetro(self):
+        perimetro = self.lado1 + self.lado2 + self.lado3
+        return f"El perímetro del triángulo es: {perimetro}"
+
+
+# Ejemplo de uso
+triangulo = Triangulo(5, 4, 3, 4, 5)
+print(triangulo.area())  # Imprime el mensaje del área del triángulo
+print(triangulo.perimetro())  # Imprime el mensaje del perímetro del triángulo
